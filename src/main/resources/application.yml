@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: kafka-practice
@@ -6,3 +7,5 @@ spring:
       enabled: true
       file:
         - docker/kafka.yaml
+server:
+  port: 0
