@@ -1,7 +1,6 @@
 package com.writer0713.kafkapractice.service
 
 import io.github.oshai.kotlinlogging.KotlinLogging
-import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 
 @Service

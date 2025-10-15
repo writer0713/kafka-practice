@@ -15,7 +15,7 @@ class MainController(
 
     @PostMapping("")
     fun makeOrder(@RequestBody orderDto: OrderDto): OrderDto {
-        val topic = "order.create_1"
+        val topic = "order.create"
         return orderService.sendMessage(topic, orderDto)
     }
 }
