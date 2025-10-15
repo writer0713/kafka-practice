@@ -27,7 +27,8 @@ class OrderService(
 
     @KafkaListener(
         topics = ["order.create_1"],
-        groupId = "#{ T(java.util.UUID).randomUUID().toString() }"
+        groupId = "#{ T(java.util.UUID).randomUUID().toString() }",
+        concurrency = "3"
     )
     fun receiveMessage(order: String) {
         log.info { "Received message $order" }

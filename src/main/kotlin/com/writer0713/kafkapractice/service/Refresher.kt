@@ -11,7 +11,7 @@ class Refresher {
         private val log = KotlinLogging.logger {}
     }
 
-    @Async
+//    @Async
     fun refresh() {
         Thread.sleep(2000L)
         log.info { "Done processing order.." }
