@@ -7,5 +7,17 @@ spring:
       enabled: true
       file:
         - docker/kafka.yaml
+  kafka:
+    bootstrap-servers: 127.0.0.1:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        partitional.class: org.apache.kafka.clients.producer.RoundRobinPartitional
+    consumer:
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
 server:
-  port: 0
+  port: 8080

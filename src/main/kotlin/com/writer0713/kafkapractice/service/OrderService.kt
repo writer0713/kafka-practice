@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service
 @Service
 class OrderService(
     private val kafkaTemplate: KafkaTemplate<String, String>,
-    private val objectMapper: ObjectMapper
+    private val objectMapper: ObjectMapper,
+    private val refresher: Refresher
 ) {
 
     companion object {
@@ -25,10 +26,11 @@ class OrderService(
     }
 
     @KafkaListener(
-        topics = ["order.create"],
+        topics = ["order.create_1"],
         groupId = "#{ T(java.util.UUID).randomUUID().toString() }"
     )
     fun receiveMessage(order: String) {
         log.info { "Received message $order" }
+        refresher.refresh()
     }
 }
